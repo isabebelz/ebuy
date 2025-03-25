@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace ebuy.Infra.Data.Context
+namespace ebuy.Infra.Data
 {
     public class EbuyDbContext : DbContext, IUnitOfWork 
     {

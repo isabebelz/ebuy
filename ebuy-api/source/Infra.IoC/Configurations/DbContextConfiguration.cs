@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ebuy.Infra.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ebuy.Infra.Data.Context
+namespace ebuy.Infra.IoC.Context
 {
     public static class DbContextConfiguration
     {
