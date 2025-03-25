@@ -16,7 +16,7 @@ namespace ebuy.Infra.Data.Context
                 options.UseNpgsql(connectionString,
                                         npgsqlOptionsAction: sqlOptions =>
                                         {
-                                            sqlOptions.MigrationsAssembly(typeof(EbuyDbContext).Assembly);
+                                            sqlOptions.MigrationsAssembly(typeof(EbuyDbContext).Assembly.GetName().Name);
                                             sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorCodesToAdd: null);
                                         });
             });
