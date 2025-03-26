@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ebuy.Infra.IoC.Context
+namespace ebuy.Infra.IoC.Configurations
 {
     public static class DbContextConfiguration
     {
@@ -17,7 +17,7 @@ namespace ebuy.Infra.IoC.Context
                 options.UseNpgsql(connectionString,
                                         npgsqlOptionsAction: sqlOptions =>
                                         {
-                                            sqlOptions.MigrationsAssembly(typeof(EbuyDbContext).Assembly.GetName().Name);
+                                            sqlOptions.MigrationsAssembly((typeof(EbuyDbContext).Assembly.GetName().Name));
                                             sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorCodesToAdd: null);
                                         });
             });
