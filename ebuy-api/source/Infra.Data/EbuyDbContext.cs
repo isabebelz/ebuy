@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace ebuy.Infra.Data
 {
-    public class EbuyContext : DbContext, IUnitOfWork 
+    public class EbuyDbContext : DbContext, IUnitOfWork 
     {
         private IDbContextTransaction? _currentTransaction;
 
-        public EbuyContext(DbContextOptions<EbuyContext> options) : base (options) { }
+        public EbuyDbContext(DbContextOptions<EbuyDbContext> options) : base (options) { }
 
         public IDbContextTransaction? GetCurrentTransaction() => _currentTransaction; 
 
@@ -16,7 +16,7 @@ namespace ebuy.Infra.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfigurationsFromAssembly(typeof(EbuyContext).Assembly);
+            builder.ApplyConfigurationsFromAssembly(typeof(EbuyDbContext).Assembly);
             base.OnModelCreating(builder);
         }
 
