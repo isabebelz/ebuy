@@ -1,4 +1,5 @@
-﻿using ebuy.Domain.SeedWork;
+﻿using ebuy.Domain.Entities;
+using ebuy.Domain.SeedWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
@@ -6,6 +7,8 @@ namespace ebuy.Infra.Data
 {
     public class EbuyDbContext : DbContext, IUnitOfWork 
     {
+        public DbSet<User> Users { get; set; }  
+
         private IDbContextTransaction? _currentTransaction;
 
         public EbuyDbContext(DbContextOptions<EbuyDbContext> options) : base (options) { }
