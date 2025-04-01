@@ -20,7 +20,7 @@ namespace ebuy.WebApi.Configurations
         {
             var configurationMapping = new MapperConfiguration(mc =>
             {
-                mc.CreateMap<User, CreateUserResponseDTO>();
+                mc.CreateMap<User, CreateUserResponse>();
             });
 
             IMapper mapper = configurationMapping.CreateMapper();
