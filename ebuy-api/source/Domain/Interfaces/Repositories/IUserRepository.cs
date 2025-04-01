@@ -5,9 +5,9 @@ namespace ebuy.Domain.Interfaces.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {
-        Task AddAsync(User user);
-        void UpdateAsync(User user);
-        Task<User> GetByIdAsync(Guid id);
+        User Add(User user);
+        void Update(User user);
+        Task<User?> GetByIdAsync(Guid id);
         Task<bool> GetByEmailAsync(string email);
     }
 }
