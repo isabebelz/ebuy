@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
 using AutoMapper;
+using ebuy.Application.UseCases.Users.Command.CreateUser;
+using ebuy.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ebuy.WebApi.Configurations
@@ -18,7 +20,7 @@ namespace ebuy.WebApi.Configurations
         {
             var configurationMapping = new MapperConfiguration(mc =>
             {
-
+                mc.CreateMap<User, CreateUserResponseDTO>();
             });
 
             IMapper mapper = configurationMapping.CreateMapper();

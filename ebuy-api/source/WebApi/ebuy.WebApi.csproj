@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\ebuy.Application.csproj" />
     <ProjectReference Include="..\Infra.IoC\ebuy.Infra.IoC.csproj" />
   </ItemGroup>
 

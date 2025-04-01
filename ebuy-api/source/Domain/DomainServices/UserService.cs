@@ -12,15 +12,15 @@ namespace ebuy.Domain.DomainServices
             _userRepository = userRepository;
         }
 
-        public async Task<Guid> RegisterUserAsync(string name, string email, string password)
+        public async Task<User> RegisterUserAsync(string name, string email, string password)
         {
             if (await _userRepository.GetByEmailAsync(email))
                 throw new InvalidOperationException("User already exists.");
 
             var user = new User(name, email, password);
-            await _userRepository.AddAsync(user);
+            _userRepository.Add(user);
 
-            return user.Id;
+            return user;
         }
     }
 }

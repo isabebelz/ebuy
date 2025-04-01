@@ -1,4 +1,9 @@
 ﻿using ebuy.Application.Configurations.DependencyInjection;
+using ebuy.Domain.DomainServices;
+using ebuy.Domain.Interfaces.Repositories;
+using ebuy.Domain.SeedWork;
+using ebuy.Infra.Data;
+using ebuy.Infra.Data.Repositories;
 using ebuy.WebApi.Configurations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,11 +32,16 @@ namespace ebuy.Infra.IoC
 
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
+            services.AddScoped(typeof(UserService));
             return services;
         }
 
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IUnitOfWork), typeof(EbuyDbContext));
+            services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+
             return services;
         }
     }
