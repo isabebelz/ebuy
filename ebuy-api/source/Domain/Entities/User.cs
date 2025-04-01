@@ -13,7 +13,7 @@ namespace ebuy.Domain.Entities
 
         public User(string name, string email, string password)
         {
-            Name = name;
+            SetName(name);
             Email = email;
             SetPassword(password);
             Active = true;
